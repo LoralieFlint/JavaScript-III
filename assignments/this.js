@@ -1,4 +1,4 @@
-/* The for principles of "this";
+/* The four principles of "this";
 * in your own words. explain the four principle for the "this" keyword below.
 *
 * 1. this is used in other languages but it worksdifferently in JS compared to others 
@@ -10,17 +10,58 @@
 */
 
 // Principle 1
-
 // code example for Window Binding
 
-// Principle 2
+function Music (name) {
+    console.log(this);
+    return name;
+}
 
+Music('Evanescence');
+
+// Principle 2
 // code example for Implicit Binding
 
-// Principle 3
+const amy = {
+    greeting: 'Hello',
+    sayHello: function (name) {
+        console.log(`${this.greeting}, my name is ${name} from the band Evanescence!`);
+        console.log(this);
+    }
+}
 
+amy.sayHello('Amy');
+
+// Principle 3
 // code example for New Binding
 
-// Principle 4
+function Me (about) {
+    this. info = 'Loralie ';
+    this.about = about;
+    this.speak = function () {
+        console.log(this.info + this.about);
+        console.log(this);
+    };
+}
+const Lor = new Me ('Loves Lambda School');
+Lor.speak();
 
+// Principle 4
 // code example for Explicit Binding
+function Loralie (about) {
+    this. info = 'Loralie ';
+    this.about = about;
+    this.speak = function () {
+        console.log(this.info + this.about);
+        console.log(this);
+    };
+}
+const lor = new Loralie ('Loves Lambda School');
+const lorX = new Loralie ('Hates School');
+
+
+lor.speak.call(lorX);
+lorX.speak.apply(lor);
+
+lor.speak();
+lorX.speak();

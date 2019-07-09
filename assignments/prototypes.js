@@ -66,6 +66,7 @@ function Humanoid (appearance) {
   GameObject.call(this, appearance);
   CharacterStats.call(this, appearance);
   //object
+  this.name = appearance.name;
   this.team = appearance.team;
   this.weapons = appearance.weapons;
   this.language = appearance.language;

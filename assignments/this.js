@@ -13,11 +13,10 @@
 // code example for Window Binding
 
 function Music (name) {
-    console.log(this);
+    // console.log(this);
     return name;
 }
-
-Music('Evanescence');
+console.log(Music('Evanescence'));
 
 // Principle 2
 // code example for Implicit Binding
@@ -26,17 +25,16 @@ const amy = {
     greeting: 'Hello',
     sayHello: function (name) {
         console.log(`${this.greeting}, my name is ${name} from the band Evanescence!`);
-        console.log(this);
+        // console.log(this);
     }
 }
-
 amy.sayHello('Amy');
 
 // Principle 3
 // code example for New Binding
 
 function Me (about) {
-    this. info = 'Loralie ';
+    this.info = 'Loralie ';
     this.about = about;
     this.speak = function () {
         console.log(this.info + this.about);
@@ -48,6 +46,7 @@ Lor.speak();
 
 // Principle 4
 // code example for Explicit Binding
+
 function Loralie (about) {
     this. info = 'Loralie ';
     this.about = about;
@@ -56,12 +55,9 @@ function Loralie (about) {
         console.log(this);
     };
 }
-const lor = new Loralie ('Loves Lambda School');
-const lorX = new Loralie ('Hates School');
-
+const lor = new Loralie ('Likes water');
+const lorX = new Loralie ('Hates soda');
 
 lor.speak.call(lorX);
 lorX.speak.apply(lor);
 
-lor.speak();
-lorX.speak();
